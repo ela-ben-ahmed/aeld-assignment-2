@@ -1,4 +1,3 @@
-cat << 'EOF' > ~/aesd-assignments/finder-app/finder-test.sh
 #!/bin/sh
 # Tester script for assignment 1 and assignment 2
 # Author: Siddhant Jajoo
@@ -70,4 +69,3 @@ else
 echo "failed: expected  ${MATCHSTR} in ${OUTPUTSTRING} but instead found"
 exit 1
 fi
-EOF

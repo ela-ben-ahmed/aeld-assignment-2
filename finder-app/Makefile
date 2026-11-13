@@ -1,19 +1,14 @@
-CC ?= gcc
+CC ?= $(CROSS_COMPILE)gcc
 CFLAGS ?= -Wall -Werror
+TARGET = writer
 
-ifneq ($(CROSS_COMPILE),)
-	CC := $(CROSS_COMPILE)gcc
-endif
+all: $(TARGET)
 
-all: writer
-
-writer: writer.o
-	$(CC) $(CFLAGS) -o writer writer.o
+$(TARGET): writer.o
+	$(CC) $(CFLAGS) writer.o -o $(TARGET)
 
 writer.o: writer.c
 	$(CC) $(CFLAGS) -c writer.c -o writer.o
 
 clean:
-	rm -f writer *.o
-
-.PHONY: all clean
+	rm -f $(TARGET) *.o
